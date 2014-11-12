@@ -1,13 +1,9 @@
 (function () {
   'use strict';
 
-  var methods = Meteor.default_server.method_handlers;
-
-  //Router.onBeforeAction(Iron.Router.bodyParser.urlencoded({
-  //  extended: false
-  //}));
-
   Meteor.startup(function () {
+
+    var methods = Meteor.default_server.method_handlers;
 
     _.each(methods, function (meteorMethodCode, meteorMethodName) {
 
@@ -21,12 +17,18 @@
 
       Router.route(routePrefix + meteorMethodName + argumentsAffix, {where: 'server'})
         .get(function () {
-          var incomingJson = !!argumentsAffix ? JSON.parse(this.params._args) : [];
-          var codeReturn = meteorMethodCode.apply(this, incomingJson);
-          var response = {};
+          var incomingJson = !!argumentsAffix ? JSON.parse(this.params._args) : [],
+              response = {};
+
+          try {
+            response.return = meteorMethodCode.apply(this, incomingJson);
+            response.status = 'OK';
+          } catch (e) {
+            response.status = 'FAIL';
+            response.reason = e.message;
+          }
+
           this.response.writeHead(200, {'Content-Type': 'application/json'});
-          response.return = codeReturn;
-          response.status = 'OK';
           this.response.end(JSON.stringify(response));
         });
     });
