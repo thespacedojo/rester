@@ -21,4 +21,11 @@
     api.addFiles(['server.js'], 'server');
   });
 
+  Package.onTest(function(api) {
+    api.use(['tinytest', 'test-helpers', 'underscore', 'http', 'iron:router'], ['client', 'server']);
+    api.use('meteorclub:rester');
+
+    api.addFiles(['tests/method_tests.js'], ['server']);
+  });
+
 })();

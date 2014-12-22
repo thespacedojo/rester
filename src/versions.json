@@ -34,7 +34,7 @@
     ],
     [
       "ddp",
-      "1.0.11"
+      "1.0.12"
     ],
     [
       "deps",
@@ -66,35 +66,35 @@
     ],
     [
       "iron:controller",
-      "1.0.0"
+      "1.0.6"
     ],
     [
       "iron:core",
-      "1.0.0"
+      "1.0.6"
     ],
     [
       "iron:dynamic-template",
-      "1.0.0"
+      "1.0.6"
     ],
     [
       "iron:layout",
-      "1.0.0"
+      "1.0.6"
     ],
     [
       "iron:location",
-      "1.0.1"
+      "1.0.6"
     ],
     [
       "iron:middleware-stack",
-      "1.0.0"
+      "1.0.6"
     ],
     [
       "iron:router",
-      "1.0.1"
+      "1.0.6"
     ],
     [
       "iron:url",
-      "1.0.0"
+      "1.0.6"
     ],
     [
       "jquery",
@@ -122,7 +122,7 @@
     ],
     [
       "mongo",
-      "1.0.8"
+      "1.0.9"
     ],
     [
       "observe-sequence",
@@ -186,6 +186,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.35",
+  "toolVersion": "meteor-tool@1.0.36",
   "format": "1.0"
 }
